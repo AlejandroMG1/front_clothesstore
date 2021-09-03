@@ -1,0 +1,47 @@
+.footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+hr{
+    background-color: white;
+    border: none;
+    height: 1px;
+}
+
+mat-expansion-panel {
+    color: white !important;
+    background-color: black !important;
+}:hover {
+    color: white !important;
+    background-color: black !important;
+}
+
+.mat-expansion-panel:not(.mat-expanded):not([aria-disabled=true]) .mat-expansion-panel-header:hover{
+    color: white !important;
+    background-color: black !important;
+}
+
+.mat-expansion-panel-header-title{
+    color: white;
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after{
+    color: white;
+}
+
+mat-panel-title h2{
+    font-weight: 500;
+}
+
+.movile-img{
+    max-height: 3rem;
+}

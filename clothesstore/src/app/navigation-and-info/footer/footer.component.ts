@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  politicsOpen = false;
+  aboutUsOpen = false;
+  paymentMethodOpen = false;
+
+
   constructor() { }
 
   ngOnInit(): void {

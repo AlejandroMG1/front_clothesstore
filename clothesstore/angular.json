@@ -28,7 +28,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "bootstrap/dist/css/bootstrap-grid.min.css"
             ],
             "scripts": []
           },
