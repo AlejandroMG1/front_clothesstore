@@ -1,0 +1,29 @@
+.p-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.price {
+    font-weight: bold;
+    color: #5B17AA;
+    font-size: 1.5rem;
+}
+
+.card {
+    font-weight: bold;
+    border: 1px solid #E6E6E6;
+    max-width: 80vw;
+    position: relative;
+}
+
+.card-info {
+    background: #F4F4F4 0% 0% no-repeat padding-box;
+    border: 1px solid #E6E6E6;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    width: fit-content;
+}

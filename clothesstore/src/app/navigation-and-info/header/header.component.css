@@ -62,6 +62,18 @@ a:hover, a:active {
     padding-right: 0.9rem;
 }
 
+.cartSpan{
+    background-color: #5B17AA;
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    border-radius: 50%;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
 .toolbar {
     border-radius: 0px;
     background-color: white;
@@ -105,4 +117,5 @@ a:hover, a:active {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 2;
 }

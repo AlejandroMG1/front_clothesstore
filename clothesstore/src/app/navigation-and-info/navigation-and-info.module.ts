@@ -6,6 +6,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +21,9 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
   imports: [
     CommonModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule,
+    RouterModule
   ],
   exports: [
     FooterComponent,

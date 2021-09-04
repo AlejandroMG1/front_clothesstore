@@ -1,1 +1,59 @@
-<p>home works!</p>
+<ng-container>
+    <div class="banner-carousel d-flex align-items-center justify-content-center">
+        <img class="banner-img" [src]="bannerImg[selectedBannerIndex]" alt="">
+        <div class="b-span-bar d-flex align-items-center justify-content-center" style="width: 100%;">
+            <div class="b-carousel-span mx-1" *ngFor="let  span of bannerImg; let i=index"
+                [ngStyle]="{'opacity':i==selectedBannerIndex?'1':'0.44'}"></div>
+        </div>
+        <div class="b-carousel-ctrl d-flex">
+            <button class="b-ctrl-button"
+                (click)="selectedBannerIndex=circularIndex(selectedBannerIndex,-1,bannerImg.length)">
+                <img src="assets\icons\left-arrow.svg" alt="previous" style="max-height: 100%;">
+            </button>
+            <button class="b-ctrl-button ms-auto"
+                (click)="selectedBannerIndex=circularIndex(selectedBannerIndex,1,bannerImg.length)">
+                <img src="assets\icons\right-arrow.svg" alt="next" style="max-height: 100%;">
+            </button>
+        </div>
+    </div>
+    <div class="row g-0" style="width: 100%;">
+        <div class="col-12 col-md-6 p-4 d-flex justify-content-center" style="position: relative;">
+            <a href="" class=" d-flex justify-content-center">
+                <img src="assets\img\categorias-destacadas-moda-infantil.png" alt="" style="max-width: 100%;">
+                <h1 class="section-tittle">
+                    MODA INFANTIL
+                </h1>
+            </a>
+        </div>
+        <div class="col-12 col-md-6 p-4 d-flex justify-content-center" style="position: relative;">
+            <a href="" class=" d-flex justify-content-center">
+                <img src="assets\img\categorias-destacadas-proteccion.png" alt="" style="max-width: 100%;">
+                <h1 class="section-tittle">
+                    PROTECCIÓN
+                </h1>
+            </a>
+        </div>
+        <div class="row d-flex align-items-center" *ngIf="mostWantedProducts.length>0">
+            <div class="col-2 col-md-1 d-flex align-items-center justify-content-center">
+                <button *ngIf="mwIndex>0" class="transparent-btn mw-ctrl-button"><img
+                        src="assets\icons\left-arrow-gray.svg" alt="previous" (click)="mwIndex=mwIndex-1"></button>
+            </div>
+            <div class="col-8 col-md-10 p-2 p-md-5">
+                <div class="row">
+                    <div class="col-3 d-none d-md-block" *ngFor="let product of mostWantedProducts| slice:mwIndex:mwIndex+4">
+                        <app-product-card [product]="product"></app-product-card>
+                    </div>
+                    <div class="col-12 d-md-none d-block" *ngFor="let product of mostWantedProducts| slice:mwIndex:mwIndex+1">
+                        <app-product-card [product]="product"></app-product-card>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-2 col-md-1 d-flex align-items-center justify-content-center">
+                <button *ngIf="mwIndex < 16" class="transparent-btn mw-ctrl-button"><img
+                        src="assets\icons\right-arrow-gray.svg" alt="next" (click)="mwIndex=mwIndex+1"></button>
+            </div>
+        </div>
+    </div>
+</ng-container>

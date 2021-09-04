@@ -1,15 +1,17 @@
 <mat-sidenav-container
-    class="example-container" (backdropClick)="close('backdrop')" style="height: 100%;">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    class="example-container" (backdropClick)="sidenav.close(); cart.close()" style="height: 100%;">
+  <mat-sidenav #sidenav (keydown.escape)="sidenav.toggle()" disableClose>
     <app-side-menu (sidenavToggle)="sidenav.toggle()"></app-side-menu>
   </mat-sidenav>
-
-  <mat-sidenav-content>
-    <app-header (height)="marginTop=$event" (sidenavToggle)="sidenav.toggle()"></app-header>
-    <main>
-      <div [ngStyle]="{'margin-top': marginTop}">
+  <mat-sidenav #cart (keydown.escape)="cart.toggle()" disableClose position="end">
+    <app-cart (cartToggle)="cart.toggle()"></app-cart>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <app-header (height)="marginTop=$event" (sidenavToggle)="sidenav.toggle()" (cartToggle)="cart.toggle()"></app-header>
+    <main style="height: 100%;">
+      <div class="d-flex flex-column bd-highlight" [ngStyle]="{'margin-top': marginTop}" style="height: 100%;">
         <router-outlet></router-outlet>
-        <app-footer></app-footer>
+        <app-footer class="mt-auto bd-highlight"></app-footer>
       </div>
     </main>
   </mat-sidenav-content>

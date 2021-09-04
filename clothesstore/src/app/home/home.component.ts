@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/interfaces/mercado-libre';
+import { MercadoLibreService } from 'src/services/mercado-libre.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  bannerImg: string[] = ['assets\\img\\banner-principal-desktop.png']
+
+  selectedBannerIndex = 0
+
+  mostWantedProducts:Product[]=[]
+
+  mwIndex = 0;
+
+  constructor(private mlService:MercadoLibreService) { }
 
   ngOnInit(): void {
+    this.getMostWanted()
   }
 
+  circularIndex(actual:number,extra: number,total:number): number {
+    const i = actual + extra
+    return (total + i) % total
+  }
+
+  async getMostWanted(){
+    this.mostWantedProducts = await (await this.mlService.searchProducts(20,0)).results
+  }
 }

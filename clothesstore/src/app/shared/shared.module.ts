@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -9,7 +10,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ProductCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule,
   ],
   exports:[
     ProductCardComponent

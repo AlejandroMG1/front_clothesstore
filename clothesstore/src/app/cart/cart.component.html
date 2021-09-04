@@ -1,0 +1,12 @@
+<div style="min-width: 30vw;">
+    <div class="d-flex bd-highlight" style="width: 100%;">
+        
+        <button class="transparent-btn " (click)="onToggleSidenav()">
+            <img src="assets\icons\Icon ionic-ios-close-circle-outline.svg" alt="close">
+        </button>
+        <h1 class="ms-auto me-2 bd-highlight">Carrito</h1>
+    </div>
+
+    <app-cart-card *ngFor="let getProduct of products" [product]="getProduct.body"
+        (remove)="removeFromCart(getProduct.body.id)"></app-cart-card>
+</div>

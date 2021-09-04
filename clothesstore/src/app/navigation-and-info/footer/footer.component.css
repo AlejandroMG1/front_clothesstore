@@ -2,7 +2,7 @@
     width: 100%;
     background-color: black;
     color: white;
-    height: 100%;
+    height: fit-content;
 }
 
 a {

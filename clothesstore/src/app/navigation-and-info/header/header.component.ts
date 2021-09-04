@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, EventEmitter, Input, Output } from '@angular/core';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CartService } from 'src/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,41 +12,44 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild('toolBar') toolBar!:any;
-  isSticky: boolean = false;
-  @Output() height:EventEmitter<string> = new EventEmitter<string>()
-  @Output() public sidenavToggle = new EventEmitter();
+  @ViewChild('toolBar') toolBar!: any;
+  @Output() height: EventEmitter<string> = new EventEmitter<string>()
+  @Output() sidenavToggle = new EventEmitter();
+  @Output() cartToggle = new EventEmitter();
 
-  constructor() { }
+  isSticky: boolean = false;
+  searchBy!: string;
+  cartSub!:Subscription;
+  inCart = 0
+
+  constructor(private router: Router, private cartService:CartService) { }
 
   ngOnInit(): void {
+    this.cartSub = this.cartService.cart.subscribe(
+      (ids)=>{
+        this.inCart = ids.length;
+      }
+    )
   }
 
-  @HostListener('window:scroll', ['$event'])
-  checkScroll() {
-    const offset =  this.toolBar.nativeElement.offsetHeight -window.pageYOffset
-    if(window.pageYOffset > 1){
-      this.height.emit( `${this.toolBar.nativeElement.offsetHeight}px`)
-      this.isSticky=true
-      console.log(this.isSticky);
-      
+
+  ngAfterContentChecked() {
+    if (this.toolBar) {
+      this.height.emit(`${this.toolBar.nativeElement.offsetHeight}px`)
+      this.isSticky = true
     }
+
   }
 
-  ngAfterViewInit(){
-    console.log("lucky");
-    
-    this.height.emit( `${this.toolBar.nativeElement.offsetHeight}px`)
-    this.isSticky=true
-    if(window.pageYOffset > 1){
-      
-      
-      console.log(this.isSticky);
-      
-    }
-  }
-
-  public onToggleSidenav = () => {
+  public onToggleSidenav(){
     this.sidenavToggle.emit();
+  }
+
+  public openCart(){
+    this.cartToggle.emit()
+  }
+
+  search() {
+    this.router.navigate(['/search'], { queryParams: { q: this.searchBy } });
   }
 }

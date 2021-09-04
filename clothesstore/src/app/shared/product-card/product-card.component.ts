@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/interfaces/mercado-libre';
+import { CartService } from 'src/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() product!: Product
+  discount = 0;
+  alreadiIncart = false;
+
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    if (this.product.original_price) {
+      this.discount = 100 - (this.product.price / (this.product.original_price as number) * 100)
+    }
   }
 
+  addToCart() {
+    if (!this.alreadiIncart) {
+      this.cartService.addToCar(this.product.id);
+      this.alreadiIncart = true
+    }
+  }
 }
