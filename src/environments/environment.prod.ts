@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  mlAPI: "https://api.mercadolibre.com/"
 };
