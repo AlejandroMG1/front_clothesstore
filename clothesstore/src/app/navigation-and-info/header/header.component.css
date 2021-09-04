@@ -21,6 +21,11 @@ a:hover, a:active {
     padding-top: 0.5rem;
 }
 
+.nav-bar{
+    font-weight: 700;
+    font-size: 32px;
+}
+
 @media screen and (min-width: 1000px) {
     .tittle {
         font-size: 72px;
@@ -30,6 +35,9 @@ a:hover, a:active {
 @media screen and (max-width: 1000px) {
     .tittle {
         font-size: 59px;
+    }
+    .nav-bar{
+        font-size: 20px;
     }
 }
 
@@ -100,10 +108,7 @@ a:hover, a:active {
     width: 100%;
 }
 
-.nav-bar{
-    font-weight: 700;
-    font-size: 32px;
-}
+
 
 .nav-item{
     padding-top: 0.5rem;
