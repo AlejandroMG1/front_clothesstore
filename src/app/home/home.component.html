@@ -33,6 +33,10 @@
                 </h1>
             </a>
         </div>
+        <div class="d-flex justify-content-center">
+            <h1 style="font-weight: bold;">PRODUCTOS MÁS BUSCADOS</h1>
+        </div>
+
         <div class="row d-flex align-items-center" *ngIf="mostWantedProducts.length>0">
             <div class="col-2 col-md-1 d-flex align-items-center justify-content-center">
                 <button *ngIf="mwIndex>0" class="transparent-btn mw-ctrl-button"><img
@@ -40,10 +44,12 @@
             </div>
             <div class="col-8 col-md-10 p-2 p-md-5">
                 <div class="row">
-                    <div class="col-3 d-none d-md-block" *ngFor="let product of mostWantedProducts| slice:mwIndex:mwIndex+4">
+                    <div class="col-3 d-none d-md-block"
+                        *ngFor="let product of mostWantedProducts| slice:mwIndex:mwIndex+4">
                         <app-product-card [product]="product"></app-product-card>
                     </div>
-                    <div class="col-12 d-md-none d-block" *ngFor="let product of mostWantedProducts| slice:mwIndex:mwIndex+1">
+                    <div class="col-12 d-md-none d-block"
+                        *ngFor="let product of mostWantedProducts| slice:mwIndex:mwIndex+1">
                         <app-product-card [product]="product"></app-product-card>
                     </div>
                 </div>

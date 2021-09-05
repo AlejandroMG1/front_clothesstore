@@ -7,7 +7,7 @@
     <app-cart (cartToggle)="cart.toggle()"></app-cart>
   </mat-sidenav>
   <mat-sidenav-content >
-    <app-header (height)="marginTop=$event" (sidenavToggle)="sidenav.toggle()" (cartToggle)="cart.toggle()"></app-header>
+    <app-header (height)="setMargin($event)" (sidenavToggle)="sidenav.toggle()" (cartToggle)="cart.toggle()"></app-header>
     <main style="height: 100%;">
       <div class="d-flex flex-column bd-highlight" [ngStyle]="{'margin-top': marginTop}" style="height: 100%;">
         <router-outlet></router-outlet>

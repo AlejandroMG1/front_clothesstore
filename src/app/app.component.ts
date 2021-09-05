@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
+import {  Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +7,16 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent {
   title = 'clothesstore';
-  marginTop = 'auto';
+  marginTop!: string;
 
   reason = '';
 
-  close(view:any) {
-    console.log(view);
-    
-    view.close();
+  constructor() { }
+
+  setMargin(margin: string) {
+    setTimeout(() => {
+      this.marginTop = margin;
+    })
+
   }
 }
