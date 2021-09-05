@@ -1,0 +1,12 @@
+
+    <div class="row my-5 mx-auto justify-content-center" style="width: 100%">
+        <div class="col-10" *ngIf="searchResults.length>0">
+            <div class="row results-panel" infiniteScroll [infiniteScrollDistance]="3"
+            [infiniteScrollThrottle]="50" [scrollWindow]="false"
+            (scrolled)="getSearchResults()">
+                <div class="col-12 col-md-3 mb-3" *ngFor="let product of searchResults; trackBy: trackItem">
+                    <app-product-card [product]="product"></app-product-card>
+                </div>
+            </div>
+        </div>
+    </div>

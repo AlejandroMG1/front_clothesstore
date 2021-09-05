@@ -1,0 +1,29 @@
+<div class="p-card">
+    <div class="p-img-container d-flex align-items-center justify-content-center">
+        <img class="p-img m-auto" [src]="product.thumbnail" alt="{{product.title}}">
+    </div>
+    <div class="d-flex card-info py-3 px-4 flex-column bd-highlight">
+        <div style="font-size: 23px;">
+            {{product.title}}
+        </div>
+        <div class="mt-auto bd-highlight">
+            <div class="row my-3">
+                <div class="col-6 price">
+                    ${{product.price | number}}
+                </div>
+                <div class="col-6 original-price" *ngIf="discount>0">
+                    ${{product.original_price | number}}
+                </div>
+            </div>
+            <div>
+                <button class="cart-btn p-2 d-flex justify-content-center" (click)="addToCart()">
+                    <mat-icon>shopping_cart</mat-icon>Agregar al carrito
+                </button>
+            </div>
+        </div>
+        <div class="discount" *ngIf="discount>0">
+            -{{discount | number}}%
+        </div>
+    </div>
+
+</div>

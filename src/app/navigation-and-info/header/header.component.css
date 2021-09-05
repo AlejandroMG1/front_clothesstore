@@ -1,0 +1,126 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover, a:active {
+    color: lightgray;
+}
+
+
+.navigation-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tittle {
+    font-family: Bebas Neue;
+    line-height: 72px;
+    text-align: center;
+    padding-top: 0.5rem;
+}
+
+.nav-bar{
+    font-weight: 700;
+    font-size: 32px;
+}
+
+@media screen and (min-width: 1000px) {
+    .tittle {
+        font-size: 72px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .tittle {
+        font-size: 59px;
+    }
+    .nav-bar{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .tittle {
+        font-size: 40px;
+    }
+}
+
+.search-input {
+    color: #6B6B6B;
+    background: #EEEEEE 0% 0% no-repeat padding-box;
+    font-size: 25px;
+    font-weight: 100;
+    border: none;
+    width: 100%;
+}
+
+:focus {
+    outline: none;
+}
+
+.search-button {
+    background: #DEDEDE 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin: 0;
+    border: none;
+    padding: 0.7rem;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+}
+
+.cartSpan{
+    background-color: #5B17AA;
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    border-radius: 50%;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.toolbar {
+    border-radius: 0px;
+    background-color: white;
+    display: block;
+    padding: 0;
+    box-shadow: 0px 3px 6px #00000015;
+    opacity: 1;
+}
+
+.white-toolbar{
+    padding-right: 3rem;
+    padding-left: 2rem;
+}
+@media screen and (max-width: 768px) {
+    .white-toolbar{
+        padding: 0;
+    }
+}
+
+.log-in-btn {
+    font-size: 18px;
+    border: 1px black solid;
+    font-weight: 500;
+    width: 100%;
+}
+
+
+
+.nav-item{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    border-right: 1px solid white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}

@@ -1,0 +1,18 @@
+<mat-sidenav-container
+    class="example-container" (backdropClick)="sidenav.close(); cart.close()" style="height: 100%;">
+  <mat-sidenav #sidenav (keydown.escape)="sidenav.toggle()" disableClose>
+    <app-side-menu (sidenavToggle)="sidenav.toggle()"></app-side-menu>
+  </mat-sidenav>
+  <mat-sidenav #cart (keydown.escape)="cart.toggle()" disableClose position="end">
+    <app-cart (cartToggle)="cart.toggle()"></app-cart>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <app-header (height)="setMargin($event)" (sidenavToggle)="sidenav.toggle()" (cartToggle)="cart.toggle()"></app-header>
+    <main style="height: 100%;">
+      <div class="d-flex flex-column bd-highlight" [ngStyle]="{'margin-top': marginTop}" style="height: 100%;">
+        <router-outlet></router-outlet>
+        <app-footer class="mt-auto bd-highlight"></app-footer>
+      </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

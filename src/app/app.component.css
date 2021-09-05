@@ -1,0 +1,17 @@
+mat-sidenav-content::-webkit-scrollbar {
+    display: none;
+}
+
+mat-sidenav-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.mat-drawer::-webkit-scrollbar {
+    display: none;
+}
+
+mat-sidenav {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

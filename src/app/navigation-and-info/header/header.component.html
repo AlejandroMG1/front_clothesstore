@@ -1,0 +1,57 @@
+<div #toolBar class="toolbar" [ngClass]="isSticky?'sticky':''">
+
+    <div class="row g-0 white-toolbar" style="background-color: white;">
+        <div class=" col-2 d-md-none d-flex align-items-center justify-content-center ">
+            <button mat-icon-button class="transparent-btn" (click)="onToggleSidenav()">
+                <mat-icon style="font-size: 48px;">menu</mat-icon>
+            </button>
+        </div>
+        <div class="col-md-4 col-8 order-1 tittle" [routerLink]="[ '/Home' ]">ClothesStore</div>
+        <div class="col-md-5 col-12 order-md-2 order-3 d-flex align-items-center justify-content-center">
+            <div class="d-flex" style="width: 100%;">
+                <input type="text" placeholder="Buscar aquí producto" class="px-4 search-input" [(ngModel)]="searchBy"
+                    (keydown.enter)="search()">
+                <button class="search-button"><img src="assets\icons\Icon ionic-ios-search.svg" alt="search"
+                        style="max-height: 100%;" (click)="search()"></button>
+            </div>
+
+        </div>
+        <div class="col-2 col-md-1 order-2 order-md-3 d-flex align-items-center justify-content-center">
+            <button class="transparent-btn py-1" (click)="openCart()" style="position: relative;">
+                <img src="assets\icons\icon-cart.svg" alt="search" style="max-height: 100%;">
+                <div *ngIf="inCart>0" class="cartSpan">{{inCart}}</div>
+            </button>
+        </div>
+        <div class="d-none d-md-flex col-1 order-md-4 d-flex align-items-center justify-content-center">
+            <button class="transparent-btn py-1">
+                <img src="assets\icons\icon-user.svg" alt="search" style="max-height: 100%;">
+
+            </button>
+        </div>
+        <div class="d-none d-md-flex col-1 order-md-5 d-flex align-items-center justify-content-center">
+            <button class="transparent-btn p-2 log-in-btn">Iniciar sesión</button>
+        </div>
+    </div>
+    <div class="d-none d-md-block">
+        <div class="d-flex g-0 w-100 py-3 justify-content-md-center nav-bar" style="background-color: black;">
+            <div class="nav-item">
+                <a>Hombre</a>
+            </div>
+            <div class="nav-item">
+                <a>Mujer</a>
+            </div>
+            <div class="nav-item">
+                <a>Junior</a>
+            </div>
+            <div class="nav-item">
+                <a>Niños</a>
+            </div>
+            <div class="nav-item">
+                <a>Accesorios</a>
+            </div>
+            <div class="nav-item" style="border-right: none;">
+                <a>Ofertas</a>
+            </div>
+        </div>
+    </div>
+</div>
